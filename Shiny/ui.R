@@ -4,28 +4,39 @@ library(shiny)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Tehilla's Weather Chart"),
+  titlePanel("Put in today's temperature"),
 
   # Sidebar with a slider input for the number of bins
   sidebarLayout(
     sidebarPanel( 
     	numericInput('temperature',
     				'Temperature: ',
-    				min = 0,
+    				min = 1,
     				max = 100,
-    				value = 0,
+    				value = NULL,
     		),
-    	submitButton('Submit')
+    	submitButton('Submit'),
+    	br(),
+    	br(),
+    	br(),
+    	br(),
+    	br(),
+    	br(),
+    	img(src = "family.png", height=250, width=300)
     ),
       
     mainPanel(
-      h1("Good morning Tehilla!"),
+      h1("Tehilla's Weather Chart", align = "center"),
+      h2("Good morning Tehilla!", align = "center"),
       br(),
-      code("We love you and want to make sure you are dressed comfortably for the weather outside."), 
-      img(src = "family.png", height=250, width=250),
-      h3("Please change the temperature to the correct number"),
-      textOutput("text1")
+      h4("We love you and want to make sure you are dressed comfortably for the weather outside.", style="color:red", align = "center"), 
+      h3("Please change the temperature to the correct number", align = "center"),
+      br(),
+      br(),
+      textOutput("text1"),
+      br(),
+      htmlOutput("summary"), 
+      br()
 	)
   )
 ))
-
